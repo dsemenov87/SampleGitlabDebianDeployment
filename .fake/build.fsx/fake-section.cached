@@ -1,0 +1,54 @@
+#r "paket:
+nuget Fake.Core
+nuget Fake.IO.FileSystem
+nuget Fake.DotNet.Cli
+nuget Fake.Core.Target
+nuget Fake.Tools //"
+#load "./.fake/build.fsx/intellisense.fsx"
+
+open Fake
+open Fake.IO
+open Fake.IO.Globbing.Operators
+open Fake.DotNet
+open Fake.Core
+// open Fake.Tools
+
+// let f = Git
+
+// Short summary of the project
+// (used as description in AssemblyInfo)
+let summary = "Modulbank Buh Template"
+
+let pwd = Shell.pwd()
+let buildDir = pwd  + @"/out/"
+
+let configuration = DotNet.BuildConfiguration.Release
+
+let runtime = Some "debian-x64"
+
+// Utils
+let publish =
+  DotNet.publish (fun opts ->
+    {opts with
+      Configuration = configuration
+      Runtime       = runtime
+      OutputPath    = Some buildDir
+    })
+
+// Targets
+Target.create "Clean" (fun _ -> Shell.cleanDirs [buildDir])
+
+Target.create "UnitTest" (fun _ ->
+   for path in !! "./test/*.UnitTests/*.csproj" do DotNet.test id path)
+
+Target.create "PublishApp" (fun _ ->
+  for path in !! "./src/*.сsproj" do publish path)
+
+// Dependencies
+open Fake.Core.TargetOperators
+"Clean"
+  ==> "UnitTest"
+  ==> "PublishApp"
+
+// start build
+Target.runOrDefault "PublishApp"

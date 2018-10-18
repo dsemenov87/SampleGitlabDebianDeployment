@@ -1,0 +1,6 @@
+source http://172.21.13.86/nuget
+source https://api.nuget.org/v3/index.json
+
+nuget Microsoft.NET.Test.Sdk 15.7.2
+nuget nunit 3.10.1
+nuget NUnit3TestAdapter 3.10.0
