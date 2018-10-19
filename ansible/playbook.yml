@@ -4,22 +4,26 @@
     become: yes
     tasks:
       - name: upload binaries
+        when: {{ branch }} != "master"
         synchronize:
           src: '../out/'
           dest: '/usr/local/bin/modulbank/Modulbank.BuhTemplate/'
           delete: yes
 
       - name: upload systemd unit
+        when: {{ branch }} != "master"
         synchronize:
           src: 'Modulbank.BuhTemplate.service'
           dest: '/etc/systemd/system/Modulbank.BuhTemplate.service'
 
       - name: upload conf file
+        when: {{ branch }} != "master"
         synchronize:
           src: '../etc/Modulbank.BuhTemplate.conf'
           dest: '/etc/modulbank/Modulbank.BuhTemplate.conf'
 
       - name: restart service
+        when: {{ branch }} != "master"
         systemd:
           name: 'Modulbank.BuhTemplate'
           state: restarted

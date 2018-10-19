@@ -120,7 +120,10 @@ paket-files/
 paket.local
 
 # FAKE - F# Make
-#.fake/
+.fake/build.fsx/build_*
+.fake/build.fsx/intellisense_lazy.fsx
+.fake/build.fsx/fake-*
+.fake/build.fsx/assemblies*
 
 # JetBrains Rider
 .idea/
@@ -140,6 +143,7 @@ Debug
 obj
 bin
 *.exe
+!.paket/paket.exe
 
 ### Vim ###
 # swap
