@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# pre-migrations
+
+exit 0

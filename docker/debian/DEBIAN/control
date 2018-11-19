@@ -1,0 +1,9 @@
+Package: ${SERVICE} 
+Version: ${VERSION}
+Section: web
+Maintainer: Modulbank
+Standards-Version: 4.0.0
+Architecture: amd64
+Depends: aspnetcore-runtime-2.1
+Description: Modul web service
+ Modul web service ${SERVICE}-${VERSION}

@@ -1,0 +1,2 @@
+/usr/lib/modulbank/${SERVICE}
+/etc/modulbank/${SERVICE}.conf.d  

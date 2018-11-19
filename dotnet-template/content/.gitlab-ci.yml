@@ -1,0 +1,8 @@
+variables:
+  BRANCH: $CI_COMMIT_REF_NAME
+  SERVICE: template
+  VERSION: "0.0.1"
+
+job:
+  script:
+    - run

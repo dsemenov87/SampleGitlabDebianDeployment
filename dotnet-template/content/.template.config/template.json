@@ -1,0 +1,14 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "Modulbank",
+    "classifications": [ "Common" ], 
+    "name": "Modulbank Service Template",
+    "identity": "Modulbank.ServiceTemplate.CSharp",
+    "shortName": "modul-service",
+    "tags": {
+      "language": "C#",
+      "type":"item"
+    },
+    "sourceName": "template",
+    "preferNameDirectory": true
+  }

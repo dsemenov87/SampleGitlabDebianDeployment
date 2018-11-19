@@ -1,0 +1,20 @@
+---
+-   name: deploy
+    become: yes
+    tasks:
+      - name: Deploy foo service
+        hosts: dotnet-stagings
+        apt:
+            deb: http://debian.repository.host/FooService:master-1.0.0.deb
+
+        name: Deploy bar service
+        hosts: dotnet-stagings
+        apt:
+            deb: http://debian.repository.host/BarService:feature_bar-0.0.1.deb
+
+      - name: Deploy postgres
+        hosts: db-stagings
+        apt:
+            name: postgresql
+            state: latest
+            install_recommends: no

@@ -1,0 +1,5 @@
+${SERVICE} (${VERSION}) trusty; urgency=low
+
+    * Staging Release. Closes: #12345
+
+-- Modulbank <a@b.c>

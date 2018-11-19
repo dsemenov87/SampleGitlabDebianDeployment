@@ -1,0 +1,18 @@
+[Unit]
+Description=dotnet ${PKG_NAME}
+After=network.target
+
+[Service]
+EnvironmentFile=/etc/modulbank/common.conf
+EnvironmentFile=-/etc/modulbank/common.conf.d/*.conf
+EnvironmentFile=/etc/modulbank/${SERVICE}.conf
+EnvironmentFile=-/etc/modulbank/${SERVICE}.conf.d/*.conf
+
+Restart=always
+Type=simple
+ExecStart=/usr/bin/dotnet /usr/lib/modulbank/${SERVICE}/service/${SERVICE}.dll
+User=www-data
+Group=www-data
+
+[Install]
+WantedBy=multi-user.target
