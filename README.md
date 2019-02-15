@@ -13,6 +13,16 @@ docker-compose up -d
 
 ### Create dotnet service from template
 
+Create NuGet template package:
+
 ```bash
-/etc/gitlab-runner
+cd ./dotnet-template
+nuget pack ./Modulbank.ServiceTemplate.CSharp.nuspec
+nuget push ./Modulbank.ServiceTemplate.CSharp.1.0.0.nupkg -Source http://172.21.13.86/nuget
+```
+
+Install NuGet template:
+```bash
+cd ./dotnet-template
+
 ```
